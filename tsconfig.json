@@ -1,4 +1,8 @@
 {
+  // "files": ["node_modules/jest-extended/types/index.d.ts"],
+  // "extends": "./tsconfig/nestjs.json",
+  "include": ["**/*"],
+  "exclude": ["node_modules", "./eslint-config-custom"],
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,
@@ -16,6 +20,9 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
     "strictBindCallApply": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@src/*": ["src/*"]
+    }
   }
 }
