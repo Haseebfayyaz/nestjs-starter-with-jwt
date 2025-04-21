@@ -20,7 +20,7 @@ export class AuthService {
   async login(dto: LoginUserDto): Promise<{ access_token: string }> {
     const user = await this.userRepo.findByEmail(dto.email);
     if (user && (await bcrypt.compare(dto.password, user.password))) {
-      const payload = { email: user.email, sub: user.id };
+      const payload = { email: user.email, id: user.id };
       return { access_token: this.jwtService.sign(payload) };
     }
     throw new Error('Invalid credentials');
